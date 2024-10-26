@@ -1,3 +1,7 @@
+import random
+from multiprocessing import Pool
+import time
+
 # Step 1: Generate random DNA sequences
 def generate_sequences(num_sequences, seq_length):
     bases = ['A', 'T', 'C', 'G']
@@ -20,7 +24,7 @@ def parallel_filter(sequences, threshold=0.5, num_processors=4):
     
     # Create a pool of workers
     with Pool(num_processors) as pool:
-        results = poolstarmap(filter_sequences, [(chunk, threshold) for chunk in sequence_chunks])
+        results = pool.starmap(filter_sequences, [(chunk, threshold) for chunk in sequence_chunks])
     
     # Flatten the list of results
     filtered_sequences = [seq for sublist in results for seq in sublist]
@@ -31,7 +35,14 @@ if __name__ == "__main__":
     # Parameters
     num_sequences = 100000  # Total number of sequences
     seq_length = 1000       # Length of each sequence
-    threshold = 0.6         # GC content threshold for filtering
+    
+    # User input for processors and GC content threshold
+    try:
+        num_processors = int(input("Enter the number of processors: "))
+        threshold = float(input("Enter GC content threshold (e.g., 0.5 for 50%): "))
+    except ValueError:
+        print("Invalid input. Please enter a valid number for processors and threshold.")
+        exit(1)
     
     # Generate the data
     sequences = generate_sequences(num_sequences, seq_length)
@@ -43,10 +54,11 @@ if __name__ == "__main__":
     
     # Measure time for multiple processors
     start_time = time.time()
-    filtered_parallel = parallel_filter(sequences, threshold, num_processors=4)
+    filtered_parallel = parallel_filter(sequences, threshold, num_processors=num_processors)
     parallel_time = time.time() - start_time
     
     # Display results
-    print(f"Single Processor Time: {single_time:.2f} seconds")
-    print(f"Parallel Processing Time (4 processors): {parallel_time:.2f} seconds")
+    print(f"\nSingle Processor Time: {single_time:.2f} seconds")
+    print(f"Parallel Processing Time ({num_processors} processors): {parallel_time:.2f} seconds")
     print(f"Speedup: {single_time / parallel_time:.2f}x")
+
