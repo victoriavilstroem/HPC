@@ -18,7 +18,7 @@ def filter_sequences(sequences, threshold=0.5):
     return [seq for seq in sequences if filter_gc_content(seq, threshold)]
 
 # Step 4: Set up a function to run with multiple processors
-def parallel_filter(sequences, threshold=0.5, num_processors=4):
+def parallel_filter(sequences, threshold=0.5, num_processors=6):
     chunk_size = len(sequences) // num_processors
     sequence_chunks = [sequences[i:i + chunk_size] for i in range(0, len(sequences), chunk_size)]
     
@@ -54,6 +54,3 @@ if __name__ == "__main__":
     print(f"Single Processor Time: {single_time:.2f} seconds")
     print(f"Parallel Processing Time (4 processors): {parallel_time:.2f} seconds")
     print(f"Speedup: {single_time / parallel_time:.2f}x")
-
-
-hello
