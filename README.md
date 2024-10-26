@@ -12,9 +12,12 @@ This repository is designed as a hands-on resource for bioinformatics students t
 * Collaborative Learning: Join a community of learners and share your insights, improvements, and questions.
 
 ## Getting Started
-1. Clone the Repository: Use git clone <repository-url> to get a local copy.
-2. Set Up Your Environment: Follow the setup instructions in the README.md to install necessary dependencies.
-3. Dive In: Start experimenting with the simulations and explore the effects of HPC on various bioinformatics tasks.
+📂 **Repository Structure**
+Here’s how we’ve organized everything:
+- `/docs`: Dive into the details and docs galore!
+- `/src`: Where the magic happens—check out our source code!
+- `/examples`: Example data and cool results await you.
+- `/notebooks`: For all you Jupyter fans, interactive fun lives here!
 
 We encourage you to contribute, provide feedback, and collaborate with others to make this a valuable learning experience for everyone involved.
 
