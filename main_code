@@ -18,7 +18,7 @@ def filter_sequences(sequences, threshold=0.5):
     return [seq for seq in sequences if filter_gc_content(seq, threshold)]
 
 # Step 4: Set up a function to run with multiple processors
-def parallel_filter(sequences, threshold=0.5, num_processors=4):
+def parallel_filter(sequences, threshold=0.5, num_processors=100):
     chunk_size = len(sequences) // num_processors
     sequence_chunks = [sequences[i:i + chunk_size] for i in range(0, len(sequences), chunk_size)]
     
@@ -34,7 +34,7 @@ def parallel_filter(sequences, threshold=0.5, num_processors=4):
 if __name__ == "__main__":
     # Parameters
     num_sequences = 100000  # Total number of sequences
-    seq_length = 1000       # Length of each sequence
+    seq_length = 10000       # Length of each sequence
     threshold = 0.6         # GC content threshold for filtering
     
     # Generate the data

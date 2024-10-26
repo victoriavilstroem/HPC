@@ -33,13 +33,14 @@ def parallel_filter(sequences, threshold=0.5, num_processors=4):
 # Main execution
 if __name__ == "__main__":
     # Parameters
-    num_sequences = 100000  # Total number of sequences
-    seq_length = 1000       # Length of each sequence
-    
-    # User input for processors and GC content threshold
+    # User input for processors, GC content threshold, total number of sequences, length of each sequence
     try:
         num_processors = int(input("Enter the number of processors: "))
         threshold = float(input("Enter GC content threshold (e.g., 0.5 for 50%): "))
+        num_sequences = int(input("Enter the total number of sequences")) # Total number of sequences
+        seq_length = int(input("Enter the DNA sequence length")) # Length of each sequence
+
+
     except ValueError:
         print("Invalid input. Please enter a valid number for processors and threshold.")
         exit(1)
