@@ -11,13 +11,11 @@ This repository is designed as a hands-on resource for bioinformatics students t
 * Educational Resources: Access guides and documentation to enhance your understanding of HPC concepts.
 * Collaborative Learning: Join a community of learners and share your insights, improvements, and questions.
 
-## Getting Started
-📂 **Repository Structure**
-Here’s how we’ve organized everything:
-- `/docs`: Dive into the details and docs galore!
-- `/src`: Where the magic happens—check out our source code!
-- `/examples`: Example data and cool results await you.
-- `/notebooks`: For all you Jupyter fans, interactive fun lives here!
+## What will happen
+1. You will connect to a Supercomputer from DeiC.
+2. See, run and alter the code that allows you to do some bioinformatic tasks like DNA sequence or Protein structure analysis.
+3. Experience how HPC allows us to work with huge amounts of data very fast, what would take a lot of time when using just your own laptop. 
+
 
 We encourage you to contribute, provide feedback, and collaborate with others to make this a valuable learning experience for everyone involved.
 
