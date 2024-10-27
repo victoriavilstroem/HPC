@@ -57,7 +57,7 @@ if __name__ == "__main__":
     ]
 
     # Run BLAST searches and display results
-    flat_results = run_blast_parallel(sequences_to_search, num_processors=8)
+    flat_results = run_blast_parallel(sequences_to_search, num_processors = int(input("Enter the number of processors: ")))
     for i, hit in enumerate(flat_results, start=1):
         print(f"Results for sequence {i}:")
         print(f"Hit ID: {hit['Hit ID']}, Title: {hit['Title']}, Score: {hit['Score']}, E-value: {hit['E-value']}")
