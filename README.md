@@ -8,7 +8,7 @@ This repository is designed as a hands-on resource for bioinformatics students t
 
 ## What You’ll Find Here
 * Interactive Simulations: Experience the impact of parallel processing on bioinformatics tasks.
-* (*Soon*) Educational Resources: Access guides and documentation to enhance your understanding of HPC concepts.
+* Educational Resources: Access guides and documentation to enhance your understanding of HPC concepts.
 * (*Soon*) Collaborative Learning: Join a community of learners and share your insights, improvements, and questions.
 
 ## What will happen
