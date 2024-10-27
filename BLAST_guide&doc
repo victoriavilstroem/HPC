@@ -1,0 +1,59 @@
+# BLAST analysis
+
+Ready to compare some sequences to the ones in the great NCBI databese? Let's GO!
+Open the BLAST.py either on cluster or your own computer.
+
+### Sequences
+
+The code in BLAST.py takes the sequences mentioned in this part of the script:
+```
+# Example DNA sequences to search
+    sequences_to_search = [
+        "ATTCTTCCCAGGACCTCAGCGCAGCCCTGGCCCAGGAAGGCAGGAGACAGAGGCCAGGACGGTCCAGAGGTGTCGAAATGTCCTGGGGACCTGAGCAGCAGCCACCAGGGAAGAGGCAGGGAGGGAGCTGAGGACCAGGCTTGGTTGTGAGAATCCCTGAGCCCAGGCGGTAGATGCCAGGAGGTGTCTGGACTGGCTGGGCCATGCCTGGGCTGACCTGTCCAGCCAGGGAGAGGGTGTGAGGGCAGATCTGGGGGTGCCCAGATGGAAGGAGGCAGGCATGGGGGACACCCAAGGCCCCCTGGCAGCACCATGAACTAAGCAGGACACCTGGAGGGGA",
+        "GCCATTGTAATGGGCCGCATGGAACAGAACAAAGTGGTCGGTGTTGCAGCCTAGGAGCTCGTTCGTGACAGTCTGCAATAGCGGTGGCGCTGAGGCGCGCGAATAGCGTGTGAGACAAATAGACAGGAGATTTGTTGACTCTTATACACTGGTTACCGAGAGGTGATGGTCGCTGTTCGGTGTCTACACGACTACCCGGAATACATCGTCAGAGGGGGCTGGAATTGCCCGCAGGTGGTGGTGGAAGATGCAGATCCAGTTTCGATGCAGAAAGCGCAGAGATGTTGGAACGGAATCAGGAGTCAACGAACGAACGAACGAACGAACGAAAGT",
+        "TTTGCTATCGTGTCGCTCGCGGTGATAGTGACTTCAGCATCAGGATGGAAGAGCTTCGTGCCGACCTGGTTGCGAGTCTGGCCGAACAGGTGCTTGGAACGATGCTTTGCCTGCGGAGCGGAAGGCTTCTTGAAGGTGAACGGCTGCGGAGTGGAAAGTTCGAACTTTGGATCAGCGGATGTTGGAGCAGGGTGTGAGTGCCAGTCCGGAAGGGATCGTTGCGTCTGTGCCGTGTGAAGGGAATGGGCTGCTCGTGGAAGCTTCACTGACGGCGGGAAGCTTGAGCTCGGGAACACGCTGCGTTTGGCAGTGCGGCAACTCGTCCTGGG" ]
+```
+Here are 3 sequences that will be compared to the NCBI database. It is a huge database, so grab a cup of tea an be patient. 
+After some time in the terminal you will see the message:
+```
+Starting BLAST search...
+Starting BLAST search...
+Starting BLAST search...
+```
+If you were to add more sequences, you would see as many 'Starting BLAST search...' messages as there are sequences inputed.
+
+### Processors
+
+In this part of code you can choose the amount of processors (the HPC part) employed for the analysis:
+```
+num_processors=4
+```
+## Logic
+
+So if I analyse 3 sequences using 4 processors I get this message:
+```
+Parallel processing completed in 62.37 seconds.
+```
+But if I analyse 6 sequences using 4 processors I get this message:
+```
+Parallel processing completed in 122.21 seconds.
+```
+So it takes twice as long, which make sense because we have more sequences than processors, hence Parallel processing is not in it's best use...
+
+Now try 8 processors (thats the max i have on my computer, if you don't - use the cluster, it has up to 64 cores).
+For 3 sequences I get similar:
+```
+Parallel processing completed in 62.37 seconds.
+```
+But for 6, now I get also:
+```
+Starting BLAST search...
+Starting BLAST search...
+Starting BLAST search...
+Starting BLAST search...
+Starting BLAST search...
+Starting BLAST search...
+Parallel processing completed in 62.46 seconds.
+```
+
+So now we have enough processors for each sequence, so the time to execute the task with 6 sequences drops copared to 4 processors
